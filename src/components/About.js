@@ -9,7 +9,7 @@ const About = () => {
       <p>Explore our app to discover new flavors and enjoy your meals!</p>
 
       userrrrrrrr
-      <User name="Vicky Gupta function" loc="blr"/>
+      {/* <User name="Vicky Gupta function" loc="blr"/> */}
       <UserClass name="Vicky Gupta class" loc="blr"/>
     </div>
   );
