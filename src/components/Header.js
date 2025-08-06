@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Title = () => (
   <a href="/">
@@ -15,6 +16,7 @@ const Title = () => (
 // Composing Comopnentss
 const Header = () => {
   const [btname, setBtnName] = React.useState("Login");
+  const onlineStatus = useOnlineStatus();
   console.log("Header Rendered");
   useEffect(() => {
     console.log("useEffect called");
@@ -24,9 +26,13 @@ const Header = () => {
       <Title />
       <div className="nav-items">
         <ul>
+          <li>
+            Online status: {onlineStatus ? "✅" : "❌"}
+          </li>
           <li><Link to={'/'}>Home</Link></li>
           <li><Link to={'/about'}>About</Link></li>
           <li><Link to={'/contact'}>Contacts</Link></li>
+          <li><Link to={'/grocery'}>Grocery</Link></li>
           <li>Cart</li>
           <button className="login-btn" onClick={() => {
             setBtnName(btname === "Login" ? "Logout" : "Login");
