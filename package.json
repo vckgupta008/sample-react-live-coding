@@ -19,9 +19,11 @@
   "homepage": "https://bitbucket.org/namastedev/namaste-react-live#readme",
   "devDependencies": {
     "@babel/core": "^7.20.7",
+    "@tailwindcss/postcss": "^4.1.11",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.8.2",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "tailwindcss": "^4.1.11"
   },
   "dependencies": {
     "react": "^18.2.0",
