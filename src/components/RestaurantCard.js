@@ -20,4 +20,19 @@ const RestaurantCard = ({
   );
 };
 
+const usePromotedRestaurantCard = (WrappedComponent) => {
+  return (props) => {
+    return (
+      <div className="promoted-card">
+        <label className="absolute bg-black text-white rounded-lg m-2 p=2">Promoted</label>
+        <WrappedComponent {...props} />
+        
+      </div>
+    );
+  };
+}
+
+export const PromotedRestaurantCard = usePromotedRestaurantCard(RestaurantCard);
+
+
 export default RestaurantCard;

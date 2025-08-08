@@ -88,6 +88,11 @@
     margin: 10px;
     border: 0.5px solid black;
 }
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /* .filter {
     display: flex;
 } */

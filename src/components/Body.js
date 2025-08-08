@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {PromotedRestaurantCard} from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
@@ -9,7 +9,7 @@ const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
-    console.log("Body Rendered",searchText);
+    console.log("Body Rendered",listOfRestaurants);
     useEffect(() => {
         // API call
         // fetch("https://example.com/api/restaurants")
@@ -68,7 +68,11 @@ const Body = () => {
     </div>
     <div className="restaurant-list">
     {filteredRestaurants.map((restaurant) => {
-        return<Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} > <RestaurantCard {...restaurant.info} /></Link>;
+        return(
+            <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} >
+                 <PromotedRestaurantCard {...restaurant.info} />   
+                 {/* <RestaurantCard {...restaurant.info} /> */}
+            </Link>);
     })}
     </div>
     </div>
