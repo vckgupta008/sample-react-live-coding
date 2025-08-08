@@ -5,9 +5,9 @@ import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
-  // const [resInfo, setResInfo] = useState(null);
   const {resId} = useParams();
   const resInfo = useRestaurantMenu(resId);
+  const [showIndex, setShowIndex] = useState(null);
   
   if(!resInfo) return <Shimmer />  ;
   
@@ -23,8 +23,13 @@ const RestaurantMenu = () => {
     
     {/* Categories */}
     <div className="menu-list">
-      {Categories.map((category) => {
-        return <RestaurantCategory key={category.card.card.title} {...category.card.card} />;
+      {Categories.map((category, index) => {
+        return (<RestaurantCategory 
+            key={category.card.card.title}
+            category = {category.card.card} 
+            showItems={index == showIndex}
+            setShowIndex={() => setShowIndex(index)}
+          />);
       })} 
     </div>
     </div>
