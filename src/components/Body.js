@@ -1,11 +1,13 @@
 import RestaurantCard, {PromotedRestaurantCard} from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
+    const {user, setUser} = useContext(UserContext);
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
@@ -38,6 +40,7 @@ const Body = () => {
 
     if(!listOfRestaurants.length) return <Shimmer />;
     
+    
     return (
         <div className="body">
         <div className="filter">
@@ -65,6 +68,7 @@ const Body = () => {
         setListOfRestaurants(filteredList);
     }}>Top Rated Restaurants</button>
     </div>
+    <input value={user?.name} onChange={(e)=>setUser({name: e.target.value})}/>
     <div className="restaurant-list">
     {filteredRestaurants.map((restaurant) => {
         return(
