@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 const RestaurantCard = ({
   name,
   cuisines,
   cloudinaryImageId,
   sla,
 }) => {
+  const {user} = useContext(UserContext);
   return (
     <div className="card">
       <img
@@ -16,6 +19,7 @@ const RestaurantCard = ({
       <h2>{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
       <h4>{sla.slaString}</h4>
+      <h4>{user.name}</h4>
     </div>
   );
 };

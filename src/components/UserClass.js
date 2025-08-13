@@ -1,4 +1,6 @@
 import React from 'react';
+import UserContext from '../utils/UserContext';
+
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
@@ -55,6 +57,11 @@ class UserClass extends React.Component {
           Count ++
         </button>
         <p>This is the user class component of the Food App.</p>
+        <UserContext.Consumer>
+          {({ user }) => (
+            <h2>User Context: {user.name}</h2>
+          )}
+        </UserContext.Consumer>
       </div>
     );
   }

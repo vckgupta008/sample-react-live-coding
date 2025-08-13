@@ -9,7 +9,6 @@ const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
-    console.log("Body Rendered",listOfRestaurants);
     useEffect(() => {
         // API call
         // fetch("https://example.com/api/restaurants")

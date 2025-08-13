@@ -7,14 +7,21 @@ import Error from "./components/Error";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 
 const AppLayout = () => {
+  const [user, setUser] = React.useState({
+    name: "Vicky Gupta1",  
+    email: "dsdsdsds@dff.com"
+  });  
   return (
-    <>
-    <Header />
-    <Outlet />
-    </>
+    <UserContext.Provider value={{user: user, setUser: setUser}}>
+      <div className="app ">
+      <Header />
+      <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 
