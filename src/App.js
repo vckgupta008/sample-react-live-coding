@@ -8,6 +8,8 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from 'react-redux';
+import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
 
 const AppLayout = () => {
@@ -16,14 +18,16 @@ const AppLayout = () => {
     email: "dsdsdsds@dff.com"
   });  
   return (
-    <UserContext.Provider value={{user: user, setUser: setUser}}>
-      <div className="app ">
-        <UserContext.Provider value={{user: {name:"Elon musk"}, setUser: setUser}}>
-          <Header />
-        </UserContext.Provider>
-      <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{user: user, setUser: setUser}}>
+        <div className="app ">
+          <UserContext.Provider value={{user: {name:"Elon musk"}, setUser: setUser}}>
+            <Header />
+          </UserContext.Provider>
+        <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

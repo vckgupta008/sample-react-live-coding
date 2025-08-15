@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from 'react-redux';
 
 const Title = () => (
   <a href="/">
@@ -24,6 +25,10 @@ const Header = () => {
   useEffect(() => {
     console.log("useEffect called");
   },[]);   
+
+  //subscribing store using useSelector
+  const cartItems = useSelector((store) => store.cart.items);
+
   return (
     <div className="header">
       <Title />
@@ -36,7 +41,7 @@ const Header = () => {
           <li><Link to={'/about'}>About</Link></li>
           <li><Link to={'/contact'}>Contacts</Link></li>
           <li><Link to={'/grocery'}>Grocery</Link></li>
-          <li>Cart</li>
+          <li>Cart {cartItems.length} items</li>
           <button className="login-btn" onClick={() => {
             setBtnName(btname === "Login" ? "Logout" : "Login");
           }}>
