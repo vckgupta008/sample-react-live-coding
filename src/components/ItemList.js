@@ -22,7 +22,7 @@ const ItemList = ({ items }) => {
             </p>
             <button 
                 className="bg-green-100 text-green-800 border border-green-200 rounded-lg px-2 py-1 text-xs cursor-pointer hover:bg-green-200 hover:text-green-900"
-                onClick={()=>handleAddItem(item.card.info.name)}
+                onClick={()=>handleAddItem(item)}
                 >
                 Add +
             </button>
